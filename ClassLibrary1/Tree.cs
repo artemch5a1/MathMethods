@@ -16,17 +16,17 @@
         {
             List<int[]> highs = new List<int[]>();
 
-            for (int i = 0; i < highTrees.Split(' ').Length; i++)
+            for (int i = 0; i < highTrees.Split(", ").Length; i++)
             {
                 int[] high = new int[2];
                 int count = 0;
 
-                if (highTrees.Split(' ')[i].Length != 2)
+                if (highTrees.Split(", ")[i].Split(' ').Length != 2)
                     throw new ArgumentException("Неверный формат строки");
 
-                foreach (char t in highTrees.Split(' ')[i])
+                foreach (string t in highTrees.Split(", ")[i].Split(' '))
                 {
-                    if(!int.TryParse(t.ToString(), out high[count]))
+                    if(!int.TryParse(t, out high[count]))
                     {
                         throw new ArgumentException("Неверный формат строки");
                     }
