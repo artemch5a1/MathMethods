@@ -1,2 +1,18 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+using PruferCode;
+
+Console.WriteLine("Введи епта");
+
+string? mes = Console.ReadLine();
+
+if (mes != null)
+{
+    try
+    {
+        Tree tree = new Tree(mes);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"{e.Message}");
+    }
+}
