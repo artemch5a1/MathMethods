@@ -1,24 +1,22 @@
-﻿
-using PruferCode;
-using PruferCode.Core.Methods;
-
-Console.WriteLine("Введи епта");
-
-
+﻿using MinElementMethod;
 
 if (true)
 {
     try
     {
-        string rebers = CsvWorker.ImportStringFromCsv("Input.csv");
+        //        int[,] tariff = {
+        //    { 16, 26, 12, 24,  3 },
+        //    {  5,  2, 19, 27,  2 },
+        //    { 29, 23, 25, 16,  8 },
+        //    {  2, 25, 14, 15, 21 }
+        //};
 
-        Tree tree = new Tree(rebers);
+        //        var result = TransportTask.SolveTask(new int[] { 14, 14, 14, 14 }, new int[] { 13, 5, 13, 12, 13 }, tariff);
 
-        string code = CodeMethods.CodePruferByTree(tree);
+        (int[] a, int[] b, int[,] tariff) resultRead = WorkFiles.ReadFromCsv("min.csv");
 
-        Console.WriteLine(code);
+        var result = TransportTask.SolveTask(resultRead.a, resultRead.b, resultRead.tariff);
 
-        CsvWorker.ExportCsv(code, "Output.csv");
     }
     catch (Exception e)
     {
