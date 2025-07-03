@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\PruferCode.Core.csproj" />
     <ProjectReference Include="..\PruferCode.Core\PruferCode.Core.csproj" />
   </ItemGroup>
 
