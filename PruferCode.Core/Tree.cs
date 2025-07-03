@@ -14,7 +14,7 @@
 
         private static List<int[]> Processing(string rebersString)
         {
-            List<int[]> highs = new List<int[]>();
+            List<int[]> rebers = new List<int[]>();
 
             for (int i = 0; i < rebersString.Split(" ").Length; i++)
             {
@@ -32,10 +32,10 @@
                     }
                     count++;
                 }
-                highs.Add(high);    
+                rebers.Add(high);    
             }
 
-            return highs;
+            return rebers;
         }
 
         private static List<int> ProcessingHighs(List<int[]> rebersTrees)
