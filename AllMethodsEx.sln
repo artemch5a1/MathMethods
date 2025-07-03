@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinElement.Main", "PruferCode\MinElement.Main.csproj", "{6D185B2B-D61E-491C-9024-D4BC475C615D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinElement.Main", "MinElement.Main\MinElement.Main.csproj", "{6D185B2B-D61E-491C-9024-D4BC475C615D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruferCode.Core", "PruferCode.Core\PruferCode.Core.csproj", "{AA1B3CBF-3D09-43E9-A871-B728CA2BC46E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruferCode.Tests", "PruferCode.Tests\PruferCode.Tests.csproj", "{0A7BF556-57D6-4EDF-BED8-B02FDBFE76D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinElement.Core", "MinElementMethod\MinElement.Core.csproj", "{98587411-BB4C-4E59-A6CB-6A8EEA3B9583}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinElement.Core", "MinElement.Core\MinElement.Core.csproj", "{98587411-BB4C-4E59-A6CB-6A8EEA3B9583}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PruferCode", "PruferCode", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject

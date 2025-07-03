@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MinElementMethod\MinElement.Core.csproj" />
+    <ProjectReference Include="..\MinElement.Core\MinElement.Core.csproj" />
   </ItemGroup>
 
 </Project>
