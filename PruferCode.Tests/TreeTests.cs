@@ -1,4 +1,6 @@
-﻿namespace PruferCode.Tests
+﻿using PruferCode.Core.Methods;
+
+namespace PruferCode.Tests
 {
     public class TreeTests
     {
@@ -76,5 +78,70 @@
             //Assert
             Assert.True(IsEgualListHighs(actual.Highs, expected));
         }
+
+        [Fact]
+        public void CodePruferByTree_ValidTree_ShouldReturnRightCode()
+        {
+            //Arrange
+            string validString = "1;2 1;3 1;4 2;5 2;6 5;7 6;8 6;9 3;10";
+            string expected = "15266213";
+            Tree tree = new Tree(validString);
+
+            //Act
+            string actual = CodeMethods.CodePruferByTree(tree);
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void ImportStringFromCsv_ValidPath_ShouldReturnRightString()
+        {
+            //Arrange
+            string path = "test.csv";
+
+            var lines = new[]
+            {
+                new[] { 1, 2 },
+                new[] { 1, 3 },
+                new[] { 1, 4 },
+                new[] { 2, 5 },
+                new[] { 2, 6 },
+                new[] { 5, 7 },
+                new[] { 6, 8 },
+                new[] { 6, 9 },
+                new[] { 3, 10 }
+            };
+
+            try
+            {
+                // Запись в файл
+                using (StreamWriter writer = new StreamWriter(path))
+                {
+                    foreach (var item in lines)
+                    {
+                        writer.WriteLine($"{item[0]};{item[1]}");
+                    }
+                }
+
+                string expected = "1;2 1;3 1;4 2;5 2;6 5;7 6;8 6;9 3;10";
+
+                //Act
+                string actual = CsvWorker.ImportStringFromCsv(path);
+
+                //Assert
+                Assert.Equal(expected, actual);
+            }
+            finally
+            {
+                // Удаление файла после теста (даже если тест упал)
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
+        }
+
+        
     }
 }
