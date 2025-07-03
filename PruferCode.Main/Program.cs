@@ -5,7 +5,7 @@ if (true)
 {
     try
     {
-        string rebers = CsvWorker.ImportStringFromCsv("Input.csv");
+        string rebers = CsvWorker.ImportStringFromCsv("pruf.csv");
 
         Tree tree = new Tree(rebers);
 
