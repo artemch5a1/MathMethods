@@ -40,7 +40,7 @@
             //Arrange
             List<int[]> expected = new List<int[]>() { new int[] { 1, 2 }, new int[] { 4, 5 }, new int[] { 5, 6 } };
 
-            string validString = "1 2, 4 5, 5 6";
+            string validString = "1;2 4;5 5;6";
 
             //Act
             Tree actual = new Tree(validString);
@@ -66,7 +66,7 @@
         public void Ctor_ValidString_ShouldReturnValidHighsTree()
         {
             //Arrange
-            string validString = "1 2, 4 5, 5 6";
+            string validString = "1;2 4;5 5;6";
 
             List<int> expected = new List<int>() { 1, 2, 4, 5, 6 };
 

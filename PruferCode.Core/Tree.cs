@@ -12,19 +12,19 @@
             Highs = ProcessingHighs(Rebers);
         }
 
-        private static List<int[]> Processing(string highTrees)
+        private static List<int[]> Processing(string rebersString)
         {
             List<int[]> highs = new List<int[]>();
 
-            for (int i = 0; i < highTrees.Split(", ").Length; i++)
+            for (int i = 0; i < rebersString.Split(" ").Length; i++)
             {
                 int[] high = new int[2];
                 int count = 0;
 
-                if (highTrees.Split(", ")[i].Split(' ').Length != 2)
+                if (rebersString.Split(" ")[i].Split(';').Length != 2)
                     throw new ArgumentException("Неверный формат строки");
 
-                foreach (string t in highTrees.Split(", ")[i].Split(' '))
+                foreach (string t in rebersString.Split(" ")[i].Split(';'))
                 {
                     if(!int.TryParse(t, out high[count]))
                     {
@@ -42,9 +42,9 @@
         {
             List<int> ints = new List<int>();
 
-            foreach (int[] highTrees in rebersTrees)
+            foreach (int[] item in rebersTrees)
             {
-                foreach(int high in highTrees) 
+                foreach(int high in item) 
                 {
                     if (!ints.Contains(high))
                     {

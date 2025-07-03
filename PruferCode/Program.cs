@@ -10,9 +10,15 @@ if (true)
 {
     try
     {
-        Tree tree = new Tree("1 2, 1 3, 1 4, 2 5, 2 6, 5 7, 6 8, 6 9, 3 10");
+        string rebers = CsvWorker.ImportStringFromCsv("Input.csv");
 
-        Console.WriteLine(CodeMethods.CodePruferByTree(tree));
+        Tree tree = new Tree(rebers);
+
+        string code = CodeMethods.CodePruferByTree(tree);
+
+        Console.WriteLine(code);
+
+        CsvWorker.ExportCsv(code, "Output.csv");
     }
     catch (Exception e)
     {
