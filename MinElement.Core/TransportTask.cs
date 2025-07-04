@@ -15,7 +15,7 @@
             return false; // null не найден
         }
 
-        public static int?[,] SolveTask(int[] a, int[] b, int[,] tariff)
+        public static int[,] SolveTask(int[] a, int[] b, int[,] tariff)
         {
             if (a.Length != tariff.GetLength(0) || b.Length != tariff.GetLength(1))
                 throw new ArgumentException("Неверные данные");
@@ -54,7 +54,16 @@
                 b[minJ] -= value;
             }
 
-            return solution;
+            int[,] finalSolution = new int[a.Length, b.Length];
+            for (int i = 0; i < solution.GetLength(0); i++)
+            {
+                for (int j = 0; j < solution.GetLength(1); j++)
+                {
+                    finalSolution[i, j] = solution[i, j] ?? 0; // Заменяем null на 0
+                }
+            }
+
+            return finalSolution;
         }
     }
 }

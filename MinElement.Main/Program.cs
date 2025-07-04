@@ -15,8 +15,9 @@ if (true)
 
         (int[] a, int[] b, int[,] tariff) resultRead = WorkFiles.ReadFromCsv("min.csv");
 
-        var result = TransportTask.SolveTask(resultRead.a, resultRead.b, resultRead.tariff);
+        int[,] result = TransportTask.SolveTask(resultRead.a, resultRead.b, resultRead.tariff);
 
+        WorkFiles.WriteCsv("rezult.csv", result);
     }
     catch (Exception e)
     {

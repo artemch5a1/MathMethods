@@ -35,7 +35,7 @@ namespace MinElementMethod
             return result;
         }
 
-        public static ( int[] a, int[] b, int[,] tariff ) ReadFromCsv(string path)
+        public static ( int[] sup, int[] cust, int[,] tariff ) ReadFromCsv(string path)
         {
             try
             {
@@ -55,14 +55,14 @@ namespace MinElementMethod
                     throw new Exception("файл пуст");
                 }
 
-                int[] s = lines[0].Split(';').Select(int.Parse).ToArray();
-                int[] c = lines[1].Split(';').Select(int.Parse).ToArray();
+                int[] sup = lines[0].Split(';').Select(int.Parse).ToArray();
+                int[] cust = lines[1].Split(';').Select(int.Parse).ToArray();
 
                 string[] lineArray = lines.Skip(2).ToArray();
 
                 int[,] tariff = ReadArrayFromCsv(lineArray);
 
-                return (s, c, tariff);
+                return (sup, cust, tariff);
             }
             catch (Exception ex)
             {
@@ -71,6 +71,22 @@ namespace MinElementMethod
             finally
             {
 
+            }
+        }
+
+        public static void WriteCsv(string path, int[,] solution)
+        {
+            using(StreamWriter sw = new StreamWriter(path))
+            {
+                for(int i = 0; i < solution.GetLength(0); i++)
+                {
+                    string[] stroke = new string[solution.GetLength(1)];
+                    for(int j = 0;  j < solution.GetLength(1); j++)
+                    {
+                        stroke[j] = solution[i, j].ToString();
+                    }
+                    sw.WriteLine(string.Join(';', stroke));
+                }
             }
         }
     }
