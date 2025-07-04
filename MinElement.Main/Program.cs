@@ -17,7 +17,15 @@ if (true)
 
         int[,] result = TransportTask.SolveTask(resultRead.a, resultRead.b, resultRead.tariff);
 
+        int func = TransportTask.CelFunc(resultRead.tariff, result);
+
         WorkFiles.WriteCsv("rezult.csv", result);
+
+        (int[] a, int[] b, int[,] tariff) resultRead2 = WorkFiles.ReadFromCsv("min.csv");
+
+        int[,] result2 = TransportTask.SolveSever(resultRead2.a, resultRead2.b, resultRead2.tariff);
+
+        WorkFiles.WriteCsv("rezult2.csv", result2);
     }
     catch (Exception e)
     {

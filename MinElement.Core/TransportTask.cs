@@ -65,5 +65,54 @@
 
             return finalSolution;
         }
+
+        public static int[,] SolveSever(int[] a, int[] b, int[,] tariff)
+        {
+            int indexI = 0;
+            int indexJ = 0;
+
+            int[,] solution =  new int[a.Length, b.Length];
+
+            int min = int.Min(a[indexI], b[indexJ]);
+
+            solution[indexI, indexJ] = min;
+
+            a[indexI] -= min;
+            b[indexJ] -= min;
+
+            for(int i = 0; indexI < a.Length && indexJ < b.Length; i++)
+            {
+                if(i % 2 == 0)
+                {
+                    indexJ++;
+                }
+                else
+                {
+                    indexI++;
+                }
+
+                min = int.Min(a[indexI], b[indexJ]);
+
+                solution[indexI, indexJ] = min;
+
+                a[indexI] -= min;
+                b[indexJ] -= min;
+            }
+
+            return solution;
+        }
+
+        public static int CelFunc(int[,] tariff, int[,] solution)
+        {
+            int func = 0;
+            for(int i = 0; i < tariff.GetLength(0); i++)
+            {
+                for(int j = 0; j < tariff.GetLength(1); j++)
+                {
+                    func += tariff[i, j] * solution[i, j];
+                }
+            }
+            return func;
+        }
     }
 }
